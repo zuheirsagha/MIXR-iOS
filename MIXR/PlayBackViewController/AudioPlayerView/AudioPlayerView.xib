@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioPlayerView" customModule="MIXR" customModuleProvider="target">
+            <connections>
+                <outlet property="currentTime" destination="Iec-Xi-7Jr" id="wFH-YC-S3k"/>
+                <outlet property="meterView" destination="TiG-XT-5a0" id="aEq-2l-lQL"/>
+                <outlet property="playPauseButton" destination="2dT-Av-UTa" id="FFe-N3-BlK"/>
+                <outlet property="slider" destination="XPH-xU-uak" id="1iO-gC-VKR"/>
+                <outlet property="timeRemaining" destination="1CQ-cb-kVc" id="abY-qe-EKo"/>
+                <outlet property="visualizerCenterView" destination="rH3-Al-KcB" id="pPz-aX-qwd"/>
+                <outlet property="visualizerView" destination="TiG-XT-5a0" id="ICC-E1-lht"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="446" height="857"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-xU-uak" userLabel="slider">
+                    <rect key="frame" x="18" y="734" width="410" height="31"/>
+                    <color key="tintColor" red="0.332602858543396" green="0.64741677045822144" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="cc3-lG-tdV"/>
+                    </connections>
+                </slider>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-Xi-7Jr" userLabel="startLabel">
+                    <rect key="frame" x="20" y="764" width="32" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CQ-cb-kVc" userLabel="endLabel">
+                    <rect key="frame" x="394" y="764" width="32" height="18"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dT-Av-UTa">
+                    <rect key="frame" x="210.5" y="787" width="25" height="36"/>
+                    <state key="normal" image="Play"/>
+                    <connections>
+                        <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="axw-Gy-ESq"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-ba-2t5" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
+                    <rect key="frame" x="83" y="288.5" width="280" height="280"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="og9-37-BPu" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="140"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdO-Hj-fTf" userLabel="top" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
+                            <rect key="frame" x="15" y="15" width="250" height="250"/>
+                            <color key="backgroundColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="7eo-Jj-CVc"/>
+                                <constraint firstAttribute="width" secondItem="RdO-Hj-fTf" secondAttribute="height" multiplier="1:1" id="hv2-ND-pmd"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="125"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiG-XT-5a0" userLabel="record" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
+                            <rect key="frame" x="15" y="15" width="250" height="250"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="250" id="eqD-wA-WdE"/>
+                                <constraint firstAttribute="height" constant="250" id="gJJ-XD-1W8"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                    <color key="value" red="0.31372549019607843" green="0.52549019607843139" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="125"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rH3-Al-KcB" userLabel="record" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
+                            <rect key="frame" x="98.5" y="98.5" width="83" height="83"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="83" id="JP0-WH-PZk"/>
+                                <constraint firstAttribute="width" constant="83" id="JZX-dh-Um5"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
+                                    <color key="value" red="0.33260285849999999" green="0.64741677050000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="41.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="rH3-Al-KcB" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="21u-jQ-vgi"/>
+                        <constraint firstItem="rH3-Al-KcB" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="3Nf-16-XYC"/>
+                        <constraint firstAttribute="width" secondItem="lhS-ba-2t5" secondAttribute="height" multiplier="1:1" id="7nO-3A-F8f"/>
+                        <constraint firstItem="TiG-XT-5a0" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="PMh-9D-wnE"/>
+                        <constraint firstItem="RdO-Hj-fTf" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="SIE-CG-DhC"/>
+                        <constraint firstAttribute="width" constant="280" id="Xab-H2-Cwb"/>
+                        <constraint firstItem="og9-37-BPu" firstAttribute="height" secondItem="lhS-ba-2t5" secondAttribute="height" id="htr-5R-owO"/>
+                        <constraint firstItem="og9-37-BPu" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="nqq-zM-zFi"/>
+                        <constraint firstItem="og9-37-BPu" firstAttribute="width" secondItem="lhS-ba-2t5" secondAttribute="width" id="oqt-yz-yZi"/>
+                        <constraint firstItem="TiG-XT-5a0" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="r8L-XZ-2a7"/>
+                        <constraint firstItem="RdO-Hj-fTf" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="wuX-Ja-Cxe"/>
+                        <constraint firstItem="og9-37-BPu" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="zEF-u6-fn0"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="140"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="XPH-xU-uak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0Zg-fL-yQK"/>
+                <constraint firstItem="1CQ-cb-kVc" firstAttribute="trailing" secondItem="XPH-xU-uak" secondAttribute="trailing" id="8bL-3n-h24"/>
+                <constraint firstItem="1CQ-cb-kVc" firstAttribute="top" secondItem="XPH-xU-uak" secondAttribute="bottom" id="EDH-cv-AFU"/>
+                <constraint firstItem="2dT-Av-UTa" firstAttribute="top" secondItem="Iec-Xi-7Jr" secondAttribute="bottom" constant="5" id="IaU-HT-2Tl"/>
+                <constraint firstItem="Iec-Xi-7Jr" firstAttribute="top" secondItem="XPH-xU-uak" secondAttribute="bottom" id="Kq0-WA-hjh"/>
+                <constraint firstItem="lhS-ba-2t5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="O5g-RV-g60"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2dT-Av-UTa" secondAttribute="bottom" id="Rft-ff-d9S"/>
+                <constraint firstItem="2dT-Av-UTa" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WV6-tQ-PFK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XPH-xU-uak" secondAttribute="trailing" constant="20" id="bw4-Nm-LOu"/>
+                <constraint firstItem="Iec-Xi-7Jr" firstAttribute="leading" secondItem="XPH-xU-uak" secondAttribute="leading" id="mH8-Tr-66F"/>
+                <constraint firstItem="lhS-ba-2t5" firstAttribute="width" secondItem="lhS-ba-2t5" secondAttribute="height" multiplier="1:1" id="ukk-ZD-Pu6"/>
+                <constraint firstItem="lhS-ba-2t5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vZK-B7-Vz8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="71.014492753623188" y="-173.77232142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Mesh" width="326" height="1030"/>
+        <image name="Play" width="25" height="36"/>
+    </resources>
+</document>
