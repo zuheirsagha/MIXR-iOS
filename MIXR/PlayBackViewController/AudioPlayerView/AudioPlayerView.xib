@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,37 +21,37 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleAspectFit" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="446" height="857"/>
+            <rect key="frame" x="0.0" y="0.0" width="446" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-xU-uak" userLabel="slider">
-                    <rect key="frame" x="18" y="734" width="410" height="31"/>
+                    <rect key="frame" x="18" y="413" width="410" height="31"/>
                     <color key="tintColor" red="0.332602858543396" green="0.64741677045822144" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="cc3-lG-tdV"/>
                     </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-Xi-7Jr" userLabel="startLabel">
-                    <rect key="frame" x="20" y="764" width="32" height="18"/>
+                    <rect key="frame" x="20" y="443" width="32" height="18"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CQ-cb-kVc" userLabel="endLabel">
-                    <rect key="frame" x="394" y="764" width="32" height="18"/>
+                    <rect key="frame" x="394" y="443" width="32" height="18"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dT-Av-UTa">
-                    <rect key="frame" x="210.5" y="787" width="25" height="36"/>
+                    <rect key="frame" x="210.5" y="466" width="25" height="36"/>
                     <state key="normal" image="Play"/>
                     <connections>
                         <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="axw-Gy-ESq"/>
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-ba-2t5" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
-                    <rect key="frame" x="83" y="288.5" width="280" height="280"/>
+                    <rect key="frame" x="83" y="44" width="280" height="280"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="og9-37-BPu" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
@@ -135,6 +133,7 @@
             <constraints>
                 <constraint firstItem="XPH-xU-uak" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="0Zg-fL-yQK"/>
                 <constraint firstItem="1CQ-cb-kVc" firstAttribute="trailing" secondItem="XPH-xU-uak" secondAttribute="trailing" id="8bL-3n-h24"/>
+                <constraint firstItem="XPH-xU-uak" firstAttribute="top" secondItem="lhS-ba-2t5" secondAttribute="bottom" constant="89" id="AkV-mr-wwc"/>
                 <constraint firstItem="1CQ-cb-kVc" firstAttribute="top" secondItem="XPH-xU-uak" secondAttribute="bottom" id="EDH-cv-AFU"/>
                 <constraint firstItem="2dT-Av-UTa" firstAttribute="top" secondItem="Iec-Xi-7Jr" secondAttribute="bottom" constant="5" id="IaU-HT-2Tl"/>
                 <constraint firstItem="Iec-Xi-7Jr" firstAttribute="top" secondItem="XPH-xU-uak" secondAttribute="bottom" id="Kq0-WA-hjh"/>
@@ -142,13 +141,13 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="2dT-Av-UTa" secondAttribute="bottom" id="Rft-ff-d9S"/>
                 <constraint firstItem="2dT-Av-UTa" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="WV6-tQ-PFK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XPH-xU-uak" secondAttribute="trailing" constant="20" id="bw4-Nm-LOu"/>
+                <constraint firstItem="lhS-ba-2t5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hFe-hD-ya6"/>
                 <constraint firstItem="Iec-Xi-7Jr" firstAttribute="leading" secondItem="XPH-xU-uak" secondAttribute="leading" id="mH8-Tr-66F"/>
                 <constraint firstItem="lhS-ba-2t5" firstAttribute="width" secondItem="lhS-ba-2t5" secondAttribute="height" multiplier="1:1" id="ukk-ZD-Pu6"/>
-                <constraint firstItem="lhS-ba-2t5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="vZK-B7-Vz8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="71.014492753623188" y="-173.77232142857142"/>
+            <point key="canvasLocation" x="71.014492753623188" y="-66.294642857142861"/>
         </view>
     </objects>
     <resources>

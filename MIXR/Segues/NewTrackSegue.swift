@@ -12,8 +12,6 @@ class NewTrackSegue : UIStoryboardSegue {
     override func perform() {
         let src = self.source as! HomeScreenViewController
         let dst = self.destination as UIViewController
-        src.present(dst, animated: false, completion: {
-            
-        })
+        src.navigationController?.pushViewController(dst, animated: true)
     }
 }

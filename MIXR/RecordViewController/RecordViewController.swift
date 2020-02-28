@@ -17,8 +17,18 @@ class RecordViewController: UIViewController, RecordingDelegate {
         recordView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let image = UIImage.init(named: "MIXRLogo")
+        self.navigationItem.titleView = UIImageView.init(image: image)
+    }
+    
     func startedRecording() {
         print("started recording")
+    }
+    
+    func hitRecordButton() {
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     func finishedRecording() {
@@ -29,7 +39,10 @@ class RecordViewController: UIViewController, RecordingDelegate {
                 textField.autocapitalizationType = .sentences
                 textField.autocorrectionType = .no
             }
-            alertController.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+            alertController.addAction(UIAlertAction(title: "Delete Song", style: .destructive, handler: { (action) in
+                self.navigationController?.popToRootViewController(animated: true)
+            }))
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                 guard let text = alertController.textFields?.first?.text else { return }
                 if text.count == 0 {
                     alertController.message = "Please enter a name with at least one character"
@@ -37,7 +50,7 @@ class RecordViewController: UIViewController, RecordingDelegate {
                 }
                 else {
                     //TODO: segue
-                    self.performSegue(withIdentifier: "idRecordToPlayBackSegue", sender: self)
+                    self.performSegue(withIdentifier: "RecordToPlayBackSegue", sender: self)
                 }
             }))
             self.present(alertController, animated: true) { }

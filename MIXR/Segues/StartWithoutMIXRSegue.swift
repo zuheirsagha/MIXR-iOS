@@ -12,8 +12,7 @@ class StartWithoutMIXRSegue : UIStoryboardSegue {
     override func perform() {
         let src = self.source as UIViewController
         let dst = self.destination as UIViewController
-        src.present(dst, animated: false, completion: {
-            
-        })
+        dst.modalPresentationStyle = .fullScreen
+        src.navigationController?.pushViewController(dst, animated: true)
     }
 }

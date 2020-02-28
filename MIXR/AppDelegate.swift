@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let appearance = UINavigationBar.appearance()
+        appearance.setBackgroundImage(UIImage.init(), for: .default)
+        appearance.shadowImage = UIImage.init()
+        appearance.backIndicatorImage = UIImage(named: "ArrowLeft")
+        appearance.tintColor = .white
+        appearance.backItem?.title = ""
         return true
     }
 

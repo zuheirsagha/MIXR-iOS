@@ -12,8 +12,6 @@ class SelectedTrackSegue : UIStoryboardSegue {
     override func perform() {
         let src = self.source as UIViewController
         let dst = self.destination as! PlayBackViewController
-        src.present(dst, animated: false, completion: {
-            
-        })
+        src.navigationController?.pushViewController(dst, animated: true)
     }
 }

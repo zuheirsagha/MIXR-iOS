@@ -16,6 +16,7 @@ import UIKit
 protocol RecordingDelegate {
     func startedRecording()
     func finishedRecording()
+    func hitRecordButton()
 }
 
 @IBDesignable
@@ -77,6 +78,7 @@ class RecordView: UIView {
     }
     
     @IBAction func recordPressed(_ sender: UIButton) {
+        delegate?.hitRecordButton()
         recordButtonCenter.isEnabled = false
         recordView.bringSubviewToFront(self.stopButton)
         stopButton.isUserInteractionEnabled = true

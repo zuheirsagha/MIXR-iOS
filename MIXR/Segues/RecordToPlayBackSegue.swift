@@ -16,6 +16,13 @@ class RecordToPlayBackSegue : UIStoryboardSegue {
             let audioPlayerView = playBackVC.audioPlayerView,
             let recordView = recordVC.recordView else { return }
         
+        playBackVC.modalPresentationStyle = .fullScreen
+        
+        playBackVC.navigationItem.setHidesBackButton(true, animated: false)
+        
+        let rightNavigationBarItem = UIBarButtonItem(title: "Done", style: .done, target: playBackVC, action: Selector(("returnToHomeScreen")))
+        playBackVC.navigationItem.setRightBarButton(rightNavigationBarItem, animated: true)
+
         let screenHeight = UIScreen.main.bounds.size.height/2
         let center = recordVC.view!.center
         let appdel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -52,7 +59,7 @@ class RecordToPlayBackSegue : UIStoryboardSegue {
                     
                 }, completion: { (finished) in
                     if finished {
-                        self.source.present(self.destination, animated: false, completion: nil)
+                        self.source.navigationController?.pushViewController(self.destination, animated: false)
                     }
                 })
             }

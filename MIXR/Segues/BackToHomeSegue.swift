@@ -11,9 +11,10 @@ import UIKit
 class BackToHomeSegue : UIStoryboardSegue {
     override func perform() {
         let src = self.source as UIViewController
-        let dst = self.destination as! HomeScreenViewController
-        src.present(dst, animated: false, completion: {
-            
-        })
+        let dst = self.destination as UIViewController
+        dst.modalPresentationStyle = .fullScreen
+        src.navigationController?.pushViewController(dst, animated: true)
+//        src.present(dst, animated: false, completion: {
+//        })
     }
 }

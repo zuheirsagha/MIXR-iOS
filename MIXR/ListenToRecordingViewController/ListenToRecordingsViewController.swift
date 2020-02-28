@@ -17,6 +17,19 @@ class ListenToRecordingsViewController : UIViewController, UITableViewDelegate, 
     var songLengths = ["4:30", "4:30", "1:35", "1:35"]
     var selectedSong = "Happy"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let logo = UIImage(named: "MIXRLogoBlack")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+        self.navigationController?.navigationBar.tintColor = .black
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell else { return UITableViewCell() }
         cell.nameLabel.text = songNames[indexPath.row]

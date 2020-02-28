@@ -13,14 +13,26 @@ class PlayBackViewController : UIViewController {
     var selectedSong = "happy"
     @IBOutlet weak var songLabel: UILabel!
     
-    @IBAction func onBackButtonPressed(_ sender: UIButton) {
-        audioPlayerView.player?.stop()
-        self.performSegue(withIdentifier: "BackToTracksSegue", sender: self)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let image = UIImage.init(named: "MIXRLogo")
+        self.navigationItem.titleView = UIImageView.init(image: image)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        audioPlayerView.playPauseButton.setImage(UIImage(named: "Play"), for: .normal)
+        audioPlayerView.player?.stop()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         songLabel.text = selectedSong
         audioPlayerView.songName = selectedSong
         audioPlayerView.setupPlayer()
+    }
+    
+    @objc func returnToHomeScreen() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -20,13 +20,14 @@
 		27186B5222C72FF3008802C5 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27186B5122C72FF3008802C5 /* RoundedView.swift */; };
 		27186B5622C73931008802C5 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27186B5522C73931008802C5 /* RoundedButton.swift */; };
 		27186B5A22C749D2008802C5 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27186B5922C749D2008802C5 /* RoundedImageView.swift */; };
-		272F0C4022E9388E00CC3669 /* InstrumentSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F0C3F22E9388E00CC3669 /* InstrumentSelectionViewController.swift */; };
 		273EE78522E8F35B00B7D8E4 /* NewTrackSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE78422E8F35B00B7D8E4 /* NewTrackSegue.swift */; };
 		273EE78722E8F3A900B7D8E4 /* ListenToTrackSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE78622E8F3A900B7D8E4 /* ListenToTrackSegue.swift */; };
 		273EE78922E8F91E00B7D8E4 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE78822E8F91E00B7D8E4 /* TrackCell.swift */; };
 		273EE78B22E8F99500B7D8E4 /* BackToHomeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE78A22E8F99500B7D8E4 /* BackToHomeSegue.swift */; };
 		273EE78D22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273EE78C22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift */; };
 		2765DD6222E0B6DD00947AA1 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2765DD6122E0B6DD00947AA1 /* ConnectViewController.swift */; };
+		27ABCFDC240825A9001B774F /* InputSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABCFDB240825A9001B774F /* InputSelectionViewController.swift */; };
+		27ABCFDE24082DE4001B774F /* SelectInstrumentSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ABCFDD24082DE4001B774F /* SelectInstrumentSegue.swift */; };
 		27BF340322CBCBC2009D95B9 /* PlayBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF340222CBCBC2009D95B9 /* PlayBackViewController.swift */; };
 		27BF340522CBCC75009D95B9 /* RecordToPlayBackSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF340422CBCC75009D95B9 /* RecordToPlayBackSegue.swift */; };
 		27D644C522E53CB100E97654 /* StartWithoutMIXRSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D644C422E53CB100E97654 /* StartWithoutMIXRSegue.swift */; };
@@ -34,7 +35,6 @@
 		27D644CC22E53F1A00E97654 /* ListenToRecordingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D644CB22E53F1900E97654 /* ListenToRecordingsViewController.swift */; };
 		27DDEFC022EB66360078A605 /* Happy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27DDEFBF22EB66360078A605 /* Happy.wav */; };
 		27DDEFC222EB66420078A605 /* Happy LPF 800.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27DDEFC122EB66410078A605 /* Happy LPF 800.wav */; };
-		27DDEFC422EB6ABE0078A605 /* BackToTracksSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DDEFC322EB6ABE0078A605 /* BackToTracksSegue.swift */; };
 		27DDEFC622EB7CCC0078A605 /* Mena Solo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27DDEFC522EB7CCC0078A605 /* Mena Solo.wav */; };
 		27DDEFCA22EB7E340078A605 /* Mena Solo LPF.wav in Resources */ = {isa = PBXBuildFile; fileRef = 27DDEFC922EB7E340078A605 /* Mena Solo LPF.wav */; };
 /* End PBXBuildFile section */
@@ -55,13 +55,14 @@
 		27186B5122C72FF3008802C5 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		27186B5522C73931008802C5 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		27186B5922C749D2008802C5 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
-		272F0C3F22E9388E00CC3669 /* InstrumentSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentSelectionViewController.swift; sourceTree = "<group>"; };
 		273EE78422E8F35B00B7D8E4 /* NewTrackSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackSegue.swift; sourceTree = "<group>"; };
 		273EE78622E8F3A900B7D8E4 /* ListenToTrackSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenToTrackSegue.swift; sourceTree = "<group>"; };
 		273EE78822E8F91E00B7D8E4 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		273EE78A22E8F99500B7D8E4 /* BackToHomeSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToHomeSegue.swift; sourceTree = "<group>"; };
 		273EE78C22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrackSegue.swift; sourceTree = "<group>"; };
 		2765DD6122E0B6DD00947AA1 /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		27ABCFDB240825A9001B774F /* InputSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSelectionViewController.swift; sourceTree = "<group>"; };
+		27ABCFDD24082DE4001B774F /* SelectInstrumentSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectInstrumentSegue.swift; sourceTree = "<group>"; };
 		27BF340222CBCBC2009D95B9 /* PlayBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackViewController.swift; sourceTree = "<group>"; };
 		27BF340422CBCC75009D95B9 /* RecordToPlayBackSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordToPlayBackSegue.swift; sourceTree = "<group>"; };
 		27D644C422E53CB100E97654 /* StartWithoutMIXRSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartWithoutMIXRSegue.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		27D644CB22E53F1900E97654 /* ListenToRecordingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenToRecordingsViewController.swift; sourceTree = "<group>"; };
 		27DDEFBF22EB66360078A605 /* Happy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Happy.wav; sourceTree = "<group>"; };
 		27DDEFC122EB66410078A605 /* Happy LPF 800.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Happy LPF 800.wav"; sourceTree = "<group>"; };
-		27DDEFC322EB6ABE0078A605 /* BackToTracksSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToTracksSegue.swift; sourceTree = "<group>"; };
 		27DDEFC522EB7CCC0078A605 /* Mena Solo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mena Solo.wav"; sourceTree = "<group>"; };
 		27DDEFC922EB7E340078A605 /* Mena Solo LPF.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Mena Solo LPF.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,12 +118,12 @@
 				27DDEFBF22EB66360078A605 /* Happy.wav */,
 				2712AF1322C804D50068C2E1 /* Invisible.wav */,
 				27DDEFC122EB66410078A605 /* Happy LPF 800.wav */,
+				2765DD6122E0B6DD00947AA1 /* ConnectViewController.swift */,
 				27186B3322C72258008802C5 /* AppDelegate.swift */,
 				27186B3722C72258008802C5 /* Main.storyboard */,
-				272F0C3F22E9388E00CC3669 /* InstrumentSelectionViewController.swift */,
-				2765DD6122E0B6DD00947AA1 /* ConnectViewController.swift */,
 				27D644C922E53DB000E97654 /* HomeScreenViewController.swift */,
 				272F0C3E22E936E600CC3669 /* ListenToRecordingViewController */,
+				27ABCFDB240825A9001B774F /* InputSelectionViewController.swift */,
 				27D644C722E53CD600E97654 /* RecordViewController */,
 				27D644C822E53CE500E97654 /* PlayBackViewController */,
 				27D644C622E53CC200E97654 /* Segues */,
@@ -166,13 +166,13 @@
 		27D644C622E53CC200E97654 /* Segues */ = {
 			isa = PBXGroup;
 			children = (
-				273EE78A22E8F99500B7D8E4 /* BackToHomeSegue.swift */,
-				27DDEFC322EB6ABE0078A605 /* BackToTracksSegue.swift */,
-				273EE78C22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift */,
+				27BF340422CBCC75009D95B9 /* RecordToPlayBackSegue.swift */,
 				273EE78422E8F35B00B7D8E4 /* NewTrackSegue.swift */,
 				273EE78622E8F3A900B7D8E4 /* ListenToTrackSegue.swift */,
+				27ABCFDD24082DE4001B774F /* SelectInstrumentSegue.swift */,
+				273EE78A22E8F99500B7D8E4 /* BackToHomeSegue.swift */,
+				273EE78C22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift */,
 				27D644C422E53CB100E97654 /* StartWithoutMIXRSegue.swift */,
-				27BF340422CBCC75009D95B9 /* RecordToPlayBackSegue.swift */,
 			);
 			path = Segues;
 			sourceTree = "<group>";
@@ -277,6 +277,7 @@
 				2712AF1022C7FC690068C2E1 /* AudioPlayerView.swift in Sources */,
 				27186B5222C72FF3008802C5 /* RoundedView.swift in Sources */,
 				27186B5622C73931008802C5 /* RoundedButton.swift in Sources */,
+				27ABCFDE24082DE4001B774F /* SelectInstrumentSegue.swift in Sources */,
 				27186B5A22C749D2008802C5 /* RoundedImageView.swift in Sources */,
 				27D644CA22E53DB000E97654 /* HomeScreenViewController.swift in Sources */,
 				27186B3622C72258008802C5 /* RecordViewController.swift in Sources */,
@@ -286,10 +287,9 @@
 				27BF340522CBCC75009D95B9 /* RecordToPlayBackSegue.swift in Sources */,
 				27BF340322CBCBC2009D95B9 /* PlayBackViewController.swift in Sources */,
 				27D644CC22E53F1A00E97654 /* ListenToRecordingsViewController.swift in Sources */,
-				272F0C4022E9388E00CC3669 /* InstrumentSelectionViewController.swift in Sources */,
 				27186B4C22C72A84008802C5 /* RecordView.swift in Sources */,
-				27DDEFC422EB6ABE0078A605 /* BackToTracksSegue.swift in Sources */,
 				27186B3422C72258008802C5 /* AppDelegate.swift in Sources */,
+				27ABCFDC240825A9001B774F /* InputSelectionViewController.swift in Sources */,
 				273EE78922E8F91E00B7D8E4 /* TrackCell.swift in Sources */,
 				273EE78D22E8FC4C00B7D8E4 /* SelectedTrackSegue.swift in Sources */,
 				273EE78B22E8F99500B7D8E4 /* BackToHomeSegue.swift in Sources */,
@@ -439,13 +439,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FR9KBRU6YA;
+				DEVELOPMENT_TEAM = 7FXR49AAUG;
 				INFOPLIST_FILE = MIXR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MIXR.MIXR;
+				PRODUCT_BUNDLE_IDENTIFIER = MIXR.MIXRAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,13 +457,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FR9KBRU6YA;
+				DEVELOPMENT_TEAM = 7FXR49AAUG;
 				INFOPLIST_FILE = MIXR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = MIXR.MIXR;
+				PRODUCT_BUNDLE_IDENTIFIER = MIXR.MIXRAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

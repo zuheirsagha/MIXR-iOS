@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,11 +19,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="280" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="280" height="545"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-jJ-gYQ">
+                    <rect key="frame" x="77.5" y="340" width="125.5" height="205"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-FG-vZg" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="160" width="280" height="280"/>
+                    <rect key="frame" x="0.0" y="44" width="280" height="280"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-62-5xF" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
@@ -124,37 +128,20 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDw-TV-KDo">
-                    <rect key="frame" x="0.0" y="440" width="280" height="126"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYp-jJ-gYQ">
-                            <rect key="frame" x="77.5" y="27" width="125.5" height="72"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstItem="bYp-jJ-gYQ" firstAttribute="centerX" secondItem="HDw-TV-KDo" secondAttribute="centerX" id="QYa-zd-SKf"/>
-                        <constraint firstItem="bYp-jJ-gYQ" firstAttribute="centerY" secondItem="HDw-TV-KDo" secondAttribute="centerY" id="XlO-e0-ZYd"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HDw-TV-KDo" secondAttribute="trailing" id="1gW-af-WC9"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="HDw-TV-KDo" secondAttribute="bottom" id="5e3-t3-qbX"/>
                 <constraint firstItem="bO6-FG-vZg" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="83c-6b-qy0"/>
                 <constraint firstItem="bO6-FG-vZg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ABM-cq-37Y"/>
                 <constraint firstItem="bO6-FG-vZg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="V5f-GT-ASE"/>
-                <constraint firstItem="bO6-FG-vZg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bjk-cj-PYf"/>
-                <constraint firstItem="HDw-TV-KDo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xrP-rQ-2u8"/>
-                <constraint firstItem="HDw-TV-KDo" firstAttribute="top" secondItem="bO6-FG-vZg" secondAttribute="bottom" id="yCE-Ca-dHn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bYp-jJ-gYQ" secondAttribute="bottom" id="Wmi-vM-XR6"/>
+                <constraint firstItem="bYp-jJ-gYQ" firstAttribute="top" secondItem="bO6-FG-vZg" secondAttribute="bottom" constant="16" id="lUR-Em-EnG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="bO6-FG-vZg" secondAttribute="top" id="nEd-de-kde"/>
+                <constraint firstItem="bYp-jJ-gYQ" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="ucT-bE-rZZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="-36.231884057971016" y="-155.02232142857142"/>
+            <point key="canvasLocation" x="-36.231884057971016" y="-191.85267857142856"/>
         </view>
     </objects>
     <resources>

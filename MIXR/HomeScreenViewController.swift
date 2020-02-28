@@ -9,11 +9,16 @@
 import UIKit
 
 class HomeScreenViewController : UIViewController {
-    @IBOutlet weak var newTrackView: UIView!
-    @IBOutlet weak var listenView: UIView!
-    @IBOutlet weak var MIXRDeviceView: RoundedView!
+    @IBOutlet weak var buttonsView: UIView!
     
-    @IBAction func onNewTrackPressed(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let logo = UIImage(named: "MIXRLogo")
+        let imageView = UIImageView(image: logo)
+        self.navigationItem.titleView = imageView
+    }
+    
+    @IBAction func onNewSongPressed(_ sender: Any) {
         print("New Track")
         performSegue(withIdentifier: "NewTrackSegue", sender: self)
     }
@@ -21,5 +26,11 @@ class HomeScreenViewController : UIViewController {
     @IBAction func onListenPressed(_ sender: UIButton) {
         print("Listen")
         performSegue(withIdentifier: "ListenToTrackSegue", sender: self)
+    }
+}
+
+class MyNavigationBar: UINavigationBar {
+    override func popItem(animated: Bool) -> UINavigationItem? {
+        return super.popItem(animated: false)
     }
 }
