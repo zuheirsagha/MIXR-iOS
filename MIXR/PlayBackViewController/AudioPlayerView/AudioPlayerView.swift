@@ -17,9 +17,9 @@ class AudioPlayerView: UIView {
     var player : AVAudioPlayer?
     var timer : Timer?
     var songName = "happy"
+    
     @IBOutlet weak var meterView: RoundedView!
     
-    @IBOutlet weak var visualizerView: RoundedView!
     @IBOutlet weak var visualizerCenterView: RoundedView!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var currentTime: UILabel!
@@ -31,7 +31,7 @@ class AudioPlayerView: UIView {
         view.frame = self.bounds
         view.autoresizingMask = [UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight]
         addSubview(view)
-        guard let player = player else { return }
+        guard player != nil else { return }
     }
     
     func loadViewFromNib() -> UIView {
@@ -61,23 +61,27 @@ class AudioPlayerView: UIView {
         currentTime.text = "\(getTime(Int(player.currentTime)))"
         
         player.updateMeters()
-        var power : Float = 0.0;
+        var power : Float = 0.0
+        
         for i in 0..<player.numberOfChannels {
             power += player.averagePower(forChannel: i)
         }
         power /= Float(player.numberOfChannels)
         let scale = 0.6/1*(pow(10.0,(power/20))-1)+1
+
         UIView.animate(withDuration: 0.001, delay: 0, options: .curveEaseInOut, animations: {
             self.meterView.transform = CGAffineTransform(scaleX: CGFloat(scale), y: CGFloat(scale))
         })
     }
     
     func setupPlayer() {
-        guard let url = Bundle.main.url(forResource: songName, withExtension: "wav") else { return }
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileURL = documentsUrl.appendingPathComponent(songName).appendingPathExtension("wav")
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            player = try AVAudioPlayer(contentsOf: fileURL, fileTypeHint: AVFileType.wav.rawValue)
             guard let player = player else { return }
             
             slider.value = 0.0

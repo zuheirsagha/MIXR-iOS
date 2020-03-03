@@ -16,7 +16,6 @@
                 <outlet property="slider" destination="XPH-xU-uak" id="1iO-gC-VKR"/>
                 <outlet property="timeRemaining" destination="1CQ-cb-kVc" id="abY-qe-EKo"/>
                 <outlet property="visualizerCenterView" destination="rH3-Al-KcB" id="pPz-aX-qwd"/>
-                <outlet property="visualizerView" destination="TiG-XT-5a0" id="ICC-E1-lht"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,43 +23,35 @@
             <rect key="frame" x="0.0" y="0.0" width="446" height="536"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-xU-uak" userLabel="slider">
+                <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XPH-xU-uak" userLabel="slider">
                     <rect key="frame" x="18" y="413" width="410" height="31"/>
                     <color key="tintColor" red="0.332602858543396" green="0.64741677045822144" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="sliderValueChanged:" destination="-1" eventType="valueChanged" id="cc3-lG-tdV"/>
                     </connections>
                 </slider>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-Xi-7Jr" userLabel="startLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-Xi-7Jr" userLabel="startLabel">
                     <rect key="frame" x="20" y="443" width="32" height="18"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CQ-cb-kVc" userLabel="endLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CQ-cb-kVc" userLabel="endLabel">
                     <rect key="frame" x="394" y="443" width="32" height="18"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dT-Av-UTa">
-                    <rect key="frame" x="210.5" y="466" width="25" height="36"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dT-Av-UTa">
+                    <rect key="frame" x="222.5" y="466" width="1" height="36"/>
                     <state key="normal" image="Play"/>
                     <connections>
                         <action selector="playPauseButtonPressed:" destination="-1" eventType="touchUpInside" id="axw-Gy-ESq"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-ba-2t5" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
+                <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lhS-ba-2t5" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
                     <rect key="frame" x="83" y="44" width="280" height="280"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="og9-37-BPu" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="140"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RdO-Hj-fTf" userLabel="top" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
                             <rect key="frame" x="15" y="15" width="250" height="250"/>
                             <color key="backgroundColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,12 +106,8 @@
                         <constraint firstItem="TiG-XT-5a0" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="PMh-9D-wnE"/>
                         <constraint firstItem="RdO-Hj-fTf" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="SIE-CG-DhC"/>
                         <constraint firstAttribute="width" constant="280" id="Xab-H2-Cwb"/>
-                        <constraint firstItem="og9-37-BPu" firstAttribute="height" secondItem="lhS-ba-2t5" secondAttribute="height" id="htr-5R-owO"/>
-                        <constraint firstItem="og9-37-BPu" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="nqq-zM-zFi"/>
-                        <constraint firstItem="og9-37-BPu" firstAttribute="width" secondItem="lhS-ba-2t5" secondAttribute="width" id="oqt-yz-yZi"/>
                         <constraint firstItem="TiG-XT-5a0" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="r8L-XZ-2a7"/>
                         <constraint firstItem="RdO-Hj-fTf" firstAttribute="centerY" secondItem="lhS-ba-2t5" secondAttribute="centerY" id="wuX-Ja-Cxe"/>
-                        <constraint firstItem="og9-37-BPu" firstAttribute="centerX" secondItem="lhS-ba-2t5" secondAttribute="centerX" id="zEF-u6-fn0"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -151,7 +138,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Mesh" width="326" height="1030"/>
         <image name="Play" width="25" height="36"/>
     </resources>
 </document>

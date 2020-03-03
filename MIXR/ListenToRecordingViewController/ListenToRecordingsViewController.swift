@@ -7,22 +7,43 @@
 //
 
 import UIKit
+import AVKit
 
 class ListenToRecordingsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var songNames = ["Happy", "Happy LPF 800", "Mena Solo", "Mena Solo LPF"]
     var songLengths = ["4:30", "4:30", "1:35", "1:35"]
     var selectedSong = "Happy"
     
+    var files : [URL]!
+    var fileNames : [String]!
+    var fileLengths : [Int]!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let logo = UIImage(named: "MIXRLogoBlack")
+        var logo : UIImage
+        if #available(iOS 13.0, *) {
+            logo = (UIImage(named: "MIXRLogo")?.withTintColor(.black))!
+        } else {
+            logo = UIImage(named: "MIXRLogo")!
+        }
         let imageView = UIImageView(image: logo)
         self.navigationItem.titleView = imageView
         self.navigationController?.navigationBar.tintColor = .black
+
+        // Get all MOV files
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        do {
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl,
+                                                                                includingPropertiesForKeys: nil)
+            
+            files = directoryContents.filter{ $0.pathExtension == "wav" }
+            fileNames = files.map{ $0.deletingPathExtension().lastPathComponent }
+        } catch {
+            print(error)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,8 +53,8 @@ class ListenToRecordingsViewController : UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TrackCell", for: indexPath) as? TrackCell else { return UITableViewCell() }
-        cell.nameLabel.text = songNames[indexPath.row]
-        cell.lengthLabel.text = "Length: \(songLengths[indexPath.row])"
+        cell.nameLabel.text = fileNames[indexPath.row]
+        cell.lengthLabel.text = "Length: \(fileNames[indexPath.row])"
         cell.numberLabel.text = "\(indexPath.row + 1)"
         
         return cell
@@ -44,16 +65,12 @@ class ListenToRecordingsViewController : UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return songNames.count
+        return fileNames.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedSong = songNames[indexPath.row]
+        selectedSong = fileNames[indexPath.row]
         performSegue(withIdentifier: "SelectedTrackSegue", sender: self)
-    }
-    
-    @IBAction func onBackButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "BackToHomeSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,3 +79,5 @@ class ListenToRecordingsViewController : UIViewController, UITableViewDelegate, 
         }
     }
 }
+
+

@@ -30,7 +30,7 @@ class RecordToPlayBackSegue : UIStoryboardSegue {
         playBackView.alpha = 0
         appdel.window!.addSubview(playBackView)
         
-        audioPlayerView.visualizerView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+        audioPlayerView.meterView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         audioPlayerView.visualizerCenterView.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         audioPlayerView.slider.transform = CGAffineTransform(translationX: 0, y: screenHeight)
         audioPlayerView.playPauseButton.transform = CGAffineTransform(translationX: 0, y: screenHeight)
@@ -49,8 +49,7 @@ class RecordToPlayBackSegue : UIStoryboardSegue {
                 playBackView.alpha = 1
                 
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseInOut, animations: {
-                    
-                    audioPlayerView.visualizerView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    audioPlayerView.meterView.transform = CGAffineTransform(scaleX: 1, y: 1)
                     audioPlayerView.visualizerCenterView.transform = CGAffineTransform(scaleX: 1, y: 1)
                     audioPlayerView.slider.transform = CGAffineTransform(translationX: 0, y: 0)
                     audioPlayerView.playPauseButton.transform = CGAffineTransform(translationX: 0, y: 0)

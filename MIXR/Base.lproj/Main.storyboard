@@ -8,113 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Connect View Controller-->
-        <scene sceneID="gCV-gh-fPG">
-            <objects>
-                <viewController id="Ieu-nw-UBd" customClass="ConnectViewController" customModule="MIXR" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WNO-Fb-8mv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIXRLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bJp-oU-Hbd">
-                                <rect key="frame" x="7" y="74" width="400" height="80"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-do-iQe" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
-                                <rect key="frame" x="87" y="327" width="240" height="717"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="T9x-b0-taP" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="717"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="36"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="T9x-b0-taP" firstAttribute="centerX" secondItem="9gd-do-iQe" secondAttribute="centerX" id="5c6-Ge-ouB"/>
-                                    <constraint firstItem="T9x-b0-taP" firstAttribute="width" secondItem="9gd-do-iQe" secondAttribute="width" id="IVx-EG-ETy"/>
-                                    <constraint firstItem="T9x-b0-taP" firstAttribute="height" secondItem="9gd-do-iQe" secondAttribute="height" id="PbT-g8-H9G"/>
-                                    <constraint firstAttribute="width" constant="240" id="vMh-wm-xKN"/>
-                                    <constraint firstItem="T9x-b0-taP" firstAttribute="centerY" secondItem="9gd-do-iQe" secondAttribute="centerY" id="zp7-gO-0p4"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="36"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColor">
-                                        <color key="value" red="0.2784313725" green="0.2784313725" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9v-xn-AfY">
-                                <rect key="frame" x="87" y="174" width="240" height="128"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" ambiguous="YES" image="Bluetooth" translatesAutoresizingMaskIntoConstraints="NO" id="6No-Xt-gI7">
-                                        <rect key="frame" x="88" y="0.0" width="64" height="52"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Turn on your Bluetooth and make sure your MIXR is nearby and on." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVj-vf-UJx">
-                                        <rect key="frame" x="0.0" y="67" width="240" height="61"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="2A1-Qt-aGk"/>
-                                    <constraint firstAttribute="bottom" secondItem="fVj-vf-UJx" secondAttribute="bottom" id="65a-e9-B9t"/>
-                                    <constraint firstItem="6No-Xt-gI7" firstAttribute="centerX" secondItem="h9v-xn-AfY" secondAttribute="centerX" id="7ce-Cd-OFe"/>
-                                    <constraint firstItem="fVj-vf-UJx" firstAttribute="width" secondItem="h9v-xn-AfY" secondAttribute="width" id="GF9-K8-rXN"/>
-                                    <constraint firstItem="6No-Xt-gI7" firstAttribute="top" secondItem="h9v-xn-AfY" secondAttribute="top" id="K7O-VU-pkN"/>
-                                    <constraint firstAttribute="height" constant="128" id="LhB-Oa-P0e"/>
-                                    <constraint firstItem="fVj-vf-UJx" firstAttribute="top" secondItem="6No-Xt-gI7" secondAttribute="bottom" constant="15" id="SJv-aj-pIq"/>
-                                    <constraint firstItem="fVj-vf-UJx" firstAttribute="centerX" secondItem="h9v-xn-AfY" secondAttribute="centerX" id="WCa-eX-Gvi"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-Rv-twE">
-                                <rect key="frame" x="142.5" y="827" width="129" height="30"/>
-                                <state key="normal" title="Start without MIXR">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93l-8I-qt6">
-                                <rect key="frame" x="177.5" y="797" width="59" height="30"/>
-                                <state key="normal" title="Connect"/>
-                                <connections>
-                                    <action selector="onConnectButtonPressed:" destination="Ieu-nw-UBd" eventType="touchUpInside" id="9BP-lN-ij3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9gd-do-iQe" firstAttribute="top" secondItem="h9v-xn-AfY" secondAttribute="bottom" constant="25" id="0Ur-mf-2Vf"/>
-                            <constraint firstItem="9gd-do-iQe" firstAttribute="height" secondItem="WNO-Fb-8mv" secondAttribute="height" multiplier="0.8" id="2gq-fX-7e8"/>
-                            <constraint firstItem="h9v-xn-AfY" firstAttribute="centerX" secondItem="T6h-Ej-kiV" secondAttribute="centerX" id="2i7-Gp-t9o"/>
-                            <constraint firstItem="bJp-oU-Hbd" firstAttribute="top" secondItem="T6h-Ej-kiV" secondAttribute="top" constant="30" id="66w-Hp-CoU"/>
-                            <constraint firstItem="VDU-Rv-twE" firstAttribute="centerX" secondItem="WNO-Fb-8mv" secondAttribute="centerX" id="Bef-38-V9n"/>
-                            <constraint firstItem="VDU-Rv-twE" firstAttribute="top" secondItem="93l-8I-qt6" secondAttribute="bottom" id="C8V-Ae-lCk"/>
-                            <constraint firstItem="bJp-oU-Hbd" firstAttribute="centerX" secondItem="WNO-Fb-8mv" secondAttribute="centerX" id="Ef3-gN-ghS"/>
-                            <constraint firstItem="9gd-do-iQe" firstAttribute="centerX" secondItem="T6h-Ej-kiV" secondAttribute="centerX" id="HBg-rq-CKX"/>
-                            <constraint firstItem="h9v-xn-AfY" firstAttribute="top" secondItem="bJp-oU-Hbd" secondAttribute="bottom" constant="20" id="SDO-CJ-4Mb"/>
-                            <constraint firstItem="T6h-Ej-kiV" firstAttribute="bottom" secondItem="VDU-Rv-twE" secondAttribute="bottom" constant="5" id="jfW-E6-4Mx"/>
-                            <constraint firstItem="93l-8I-qt6" firstAttribute="centerX" secondItem="WNO-Fb-8mv" secondAttribute="centerX" id="yQI-HC-z88"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="T6h-Ej-kiV"/>
-                    </view>
-                    <connections>
-                        <outlet property="MIXRDeviceView" destination="9gd-do-iQe" id="KxI-na-tiW"/>
-                        <outlet property="bTDescLabel" destination="fVj-vf-UJx" id="O4d-ei-Dej"/>
-                        <outlet property="blueToothImageView" destination="6No-Xt-gI7" id="v6K-x1-gtO"/>
-                        <outlet property="connectButton" destination="93l-8I-qt6" id="T6e-HL-VNl"/>
-                        <outlet property="startWithoutMIXRButton" destination="VDU-Rv-twE" id="49N-cj-PLr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JtP-LV-QVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2471" y="23"/>
-        </scene>
         <!-- -->
         <scene sceneID="8zl-G6-jeL">
             <objects>
@@ -304,14 +197,32 @@
                                     <constraint firstAttribute="bottom" secondItem="e1n-jE-Dcp" secondAttribute="bottom" constant="20" symbolic="YES" id="s7b-yx-1tf"/>
                                 </constraints>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are not currently connected to a MIXR device, please return to settings and connect to the MIXR Wifi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yg-q3-iGO">
+                                <rect key="frame" x="32" y="682.5" width="350" height="30.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RK-QJ-bkl">
+                                <rect key="frame" x="188.5" y="732" width="37" height="30"/>
+                                <state key="normal" title="Retry"/>
+                                <connections>
+                                    <action selector="onRetryPressed:" destination="rkd-zL-SeU" eventType="touchUpInside" id="bCk-AT-I1g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="67p-6x-l5e" firstAttribute="centerY" secondItem="PVc-3F-gZs" secondAttribute="centerY" id="0qf-D0-cqZ"/>
+                            <constraint firstItem="5yg-q3-iGO" firstAttribute="top" secondItem="67p-6x-l5e" secondAttribute="bottom" constant="16" id="46N-FT-vQm"/>
+                            <constraint firstItem="5yg-q3-iGO" firstAttribute="centerX" secondItem="PVc-3F-gZs" secondAttribute="centerX" id="4Oy-LS-jcd"/>
                             <constraint firstItem="67p-6x-l5e" firstAttribute="centerX" secondItem="PVc-3F-gZs" secondAttribute="centerX" id="6y5-iD-zlQ"/>
                             <constraint firstAttribute="bottom" secondItem="PVc-3F-gZs" secondAttribute="bottom" id="HDb-wQ-RHc"/>
                             <constraint firstItem="PVc-3F-gZs" firstAttribute="leading" secondItem="Ba5-Oo-IgA" secondAttribute="leading" id="HVr-4j-nJU"/>
                             <constraint firstItem="Ba5-Oo-IgA" firstAttribute="trailing" secondItem="PVc-3F-gZs" secondAttribute="trailing" id="Jar-Yb-MOa"/>
+                            <constraint firstItem="4RK-QJ-bkl" firstAttribute="centerX" secondItem="Ba5-Oo-IgA" secondAttribute="centerX" id="jMH-3O-OdH"/>
+                            <constraint firstItem="5yg-q3-iGO" firstAttribute="leading" secondItem="Ba5-Oo-IgA" secondAttribute="leading" constant="32" id="ldz-e1-1SW"/>
+                            <constraint firstItem="4RK-QJ-bkl" firstAttribute="top" secondItem="5yg-q3-iGO" secondAttribute="bottom" constant="19" id="zBc-Ax-dA9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ba5-Oo-IgA"/>
                     </view>
@@ -320,13 +231,18 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buttonsView" destination="67p-6x-l5e" id="CNs-Pd-l0m"/>
+                        <outlet property="disconnectedText" destination="5yg-q3-iGO" id="J7A-37-frW"/>
+                        <outlet property="newTrackButton" destination="yC7-yt-0KR" id="PaC-N8-5BO"/>
+                        <outlet property="newTrackImage" destination="DXx-HK-EUs" id="e2k-Ez-NeI"/>
+                        <outlet property="newTrackLabel" destination="9LN-lk-hUw" id="BbL-yD-Zk4"/>
+                        <outlet property="retryButton" destination="4RK-QJ-bkl" id="WK6-NA-4xT"/>
                         <segue destination="oos-8P-SjB" kind="custom" identifier="NewTrackSegue" customClass="NewTrackSegue" customModule="MIXR" customModuleProvider="target" id="rkX-jf-Yzw"/>
                         <segue destination="JvR-ep-TD7" kind="custom" identifier="ListenToTrackSegue" customClass="ListenToTrackSegue" customModule="MIXR" customModuleProvider="target" id="H13-8e-giD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfo-hY-96j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1630" y="771"/>
+            <point key="canvasLocation" x="-1630.4347826086957" y="770.75892857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J5v-4X-6CB">
@@ -559,15 +475,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bluetooth" width="32" height="50"/>
         <image name="Headphones" width="68" height="68"/>
-        <image name="MIXRLogo" width="200" height="40"/>
-        <image name="Mesh" width="326" height="1030"/>
         <image name="Mic" width="46" height="67"/>
         <image name="XLR" width="64" height="64"/>
         <image name="background" width="375" height="593"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HOo-ob-APo"/>
+        <segue reference="3Sg-tk-eMF"/>
     </inferredMetricsTieBreakers>
 </document>

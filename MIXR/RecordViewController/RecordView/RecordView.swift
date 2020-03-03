@@ -17,10 +17,13 @@ protocol RecordingDelegate {
     func startedRecording()
     func finishedRecording()
     func hitRecordButton()
+    func hitStopButton()
+    func MIXRDisconnected()
 }
 
 @IBDesignable
 class RecordView: UIView {
+    typealias CompletionHandler = (_ success:Bool) -> Void
     
     @IBOutlet weak var innerMIXROutline: RoundedView!
     @IBOutlet weak var stopButton: RoundedButton!
@@ -60,37 +63,80 @@ class RecordView: UIView {
     }
     
     @IBAction func stopButtonPressed(_ sender: RoundedButton) {
-        recordButtonCenter.isEnabled = true
-        delegate?.finishedRecording()
-        timerLabel.layer.removeAllAnimations()
-        timer?.invalidate()
-        stopButton.isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-            self.stopButton.cornerRadius = 50
-            self.stopButton.transform = CGAffineTransform(scaleX: 1, y: 1)
-            self.stopButton.bgColor = .clear
-            self.recordButtonCenter.transform = CGAffineTransform(scaleX: 1, y: 1)
-        }) { (finished) in
-            if finished {
-                self.recordView.bringSubviewToFront(self.recordButtonCenter)
+        delegate?.hitStopButton()
+        sendState(state: "stop") { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    self.recordButtonCenter.isEnabled = true
+                    self.delegate?.finishedRecording()
+                    self.timerLabel.layer.removeAllAnimations()
+                    self.timer?.invalidate()
+                    self.stopButton.isUserInteractionEnabled = false
+                    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                        self.stopButton.cornerRadius = 50
+                        self.stopButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+                        self.stopButton.bgColor = .clear
+                        self.recordButtonCenter.transform = CGAffineTransform(scaleX: 1, y: 1)
+                    }) { (finished) in
+                        if finished {
+                            self.recordView.bringSubviewToFront(self.recordButtonCenter)
+                        }
+                    }
+                }
+            }
+            else {
+                self.delegate?.MIXRDisconnected()
             }
         }
     }
     
     @IBAction func recordPressed(_ sender: UIButton) {
         delegate?.hitRecordButton()
-        recordButtonCenter.isEnabled = false
-        recordView.bringSubviewToFront(self.stopButton)
-        stopButton.isUserInteractionEnabled = true
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 15, options: .curveEaseInOut, animations: {
-            self.stopButton.cornerRadius = 16
-            self.stopButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-            self.stopButton.bgColor = .white
-            self.recordButtonCenter.transform = CGAffineTransform(scaleX: 250/83, y: 250/83)
-        })
-        timerLabel.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
-        timerLabel.text = "3"
-        animateCountdown("3")
+        sendState(state: "record") { (success) in
+            if (success) {
+                DispatchQueue.main.async {
+                    self.recordButtonCenter.isEnabled = false
+                    self.recordView.bringSubviewToFront(self.stopButton)
+                    self.stopButton.isUserInteractionEnabled = true
+                    UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 15, options: .curveEaseInOut, animations: {
+                        self.stopButton.cornerRadius = 16
+                        self.stopButton.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                        self.stopButton.bgColor = .white
+                        self.recordButtonCenter.transform = CGAffineTransform(scaleX: 250/83, y: 250/83)
+                    })
+                    self.timerLabel.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+                    self.timerLabel.text = "3"
+                    self.animateCountdown("3")
+                }
+            }
+            else {
+                self.delegate?.MIXRDisconnected()
+            }
+        }
+    }
+    
+    func sendState(state: String, completionHandler: @escaping CompletionHandler) {
+        let url : URL?
+        if state == "record" {
+            url = URL(string: "http://192.168.4.1:8089/record")
+        }
+        else {
+            url = URL(string: "http://192.168.4.1:8089/stop")
+        }
+
+        guard let u = url else { return }
+
+        var request = URLRequest(url: u)
+        request.httpMethod = "GET"
+        request.timeoutInterval = TimeInterval(exactly: 5)!
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                completionHandler(false)
+                return
+            }
+            completionHandler(true)
+        }.resume()
     }
     
     func animateCountdown(_ text : String) {

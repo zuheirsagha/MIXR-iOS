@@ -31,14 +31,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-FG-vZg" userLabel="topOuter" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="280" height="280"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mesh" translatesAutoresizingMaskIntoConstraints="NO" id="sQq-62-5xF" customClass="RoundedImageView" customModule="MIXR" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="280" height="280"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                    <real key="value" value="140"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sto-VV-2N2" userLabel="top" customClass="RoundedView" customModule="MIXR" customModuleProvider="target">
                             <rect key="frame" x="15" y="15" width="250" height="250"/>
                             <color key="backgroundColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,13 +106,9 @@
                         <constraint firstItem="Sto-VV-2N2" firstAttribute="centerY" secondItem="bO6-FG-vZg" secondAttribute="centerY" id="K0h-Te-OtA"/>
                         <constraint firstAttribute="width" constant="280" id="KQF-tz-xtL"/>
                         <constraint firstItem="SeO-OJ-SjH" firstAttribute="centerY" secondItem="bO6-FG-vZg" secondAttribute="centerY" id="QaT-I2-ppD"/>
-                        <constraint firstItem="sQq-62-5xF" firstAttribute="centerX" secondItem="bO6-FG-vZg" secondAttribute="centerX" id="SWU-I1-mBN"/>
                         <constraint firstItem="SeO-OJ-SjH" firstAttribute="centerX" secondItem="bO6-FG-vZg" secondAttribute="centerX" id="aTZ-8w-5gs"/>
                         <constraint firstItem="Sto-VV-2N2" firstAttribute="centerX" secondItem="bO6-FG-vZg" secondAttribute="centerX" id="euE-4u-UWp"/>
-                        <constraint firstItem="sQq-62-5xF" firstAttribute="centerY" secondItem="bO6-FG-vZg" secondAttribute="centerY" id="g4l-Sj-vhx"/>
                         <constraint firstAttribute="width" secondItem="bO6-FG-vZg" secondAttribute="height" multiplier="1:1" id="okp-Ro-gbx"/>
-                        <constraint firstItem="sQq-62-5xF" firstAttribute="width" secondItem="bO6-FG-vZg" secondAttribute="width" id="rgU-jF-sj8"/>
-                        <constraint firstItem="sQq-62-5xF" firstAttribute="height" secondItem="bO6-FG-vZg" secondAttribute="height" id="up0-OM-fKN"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -144,7 +132,4 @@
             <point key="canvasLocation" x="-36.231884057971016" y="-191.85267857142856"/>
         </view>
     </objects>
-    <resources>
-        <image name="Mesh" width="326" height="1030"/>
-    </resources>
 </document>
