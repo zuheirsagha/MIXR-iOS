@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 @IBDesignable
-class AudioPlayerView: UIView {
+class AudioPlayerView: UIView, AVAudioPlayerDelegate {
     
     var nibName = "AudioPlayerView"
     var view : UIView!
@@ -88,11 +88,16 @@ class AudioPlayerView: UIView {
             slider.maximumValue = Float(player.duration)
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateSlider), userInfo: nil, repeats: true)
             
+            player.delegate = self
             player.prepareToPlay()
             player.isMeteringEnabled = true;
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playPauseButton.setImage(UIImage(named:"Play"), for: .normal)
     }
     
     @IBAction func playPauseButtonPressed(_ sender: Any) {

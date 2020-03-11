@@ -29,13 +29,16 @@ class RecordViewController: UIViewController, RecordingDelegate {
         self.navigationItem.titleView = UIImageView.init(image: image)
     }
     
-    func startedRecording() {
-        print("started recording")
-        self.navigationItem.setHidesBackButton(true, animated: false)
-    }
-    
     func hitRecordButton() {
         showSpinner(true)
+    }
+    
+    func startingCountDown() {
+        showSpinner(false)
+    }
+    
+    func startedRecording() {
+        self.navigationItem.setHidesBackButton(true, animated: false)
     }
     
     func showSpinner(_ bool: Bool) {
@@ -73,10 +76,6 @@ class RecordViewController: UIViewController, RecordingDelegate {
         }
     }
     
-    func hitStopButton() {
-        showSpinner(true)
-    }
-    
     func finishedRecording() {
         print("finished recording")
         if recordView.timerCtr > 0 {
@@ -87,6 +86,17 @@ class RecordViewController: UIViewController, RecordingDelegate {
             }
             alertController.addAction(UIAlertAction(title: "Delete Song", style: .destructive, handler: { (action) in
                 self.navigationController?.popToRootViewController(animated: true)
+                
+                self.getSong(completionHandler: { (success, data) in
+                    self.showSpinner(false)
+                    if success {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                    else {
+                        alertController.message = "There was an error connecting to MIXR, please reconnect and try again."
+                        self.present(alertController, animated: true, completion: {})
+                    }
+                }, shouldProcess: false)
             }))
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
                 guard let text = alertController.textFields?.first?.text else { return }
@@ -106,13 +116,15 @@ class RecordViewController: UIViewController, RecordingDelegate {
 //                        let asset = AVAsset(url: Bundle.main.url(forResource: "Happy", withExtension: "wav")!)
 //                        let data = try Data(contentsOf: Bundle.main.url(forResource: "Happy", withExtension: "wav")!)
                         
-                        self.getSong { (success, data) in
+                        self.getSong(completionHandler: { (success, data) in
                             self.showSpinner(false)
                             if success {
                                 do {
                                     if !fileManager.fileExists(atPath: fileURL.path) {
                                         try data!.write(to: fileURL)
-                                        self.performSegue(withIdentifier: "RecordToPlayBackSegue", sender: self)
+                                        DispatchQueue.main.async {
+                                            self.performSegue(withIdentifier: "RecordToPlayBackSegue", sender: self)
+                                        }
                                     }
                                     else {
                                         print("\(text) already exists at \(fileURL)")
@@ -127,7 +139,8 @@ class RecordViewController: UIViewController, RecordingDelegate {
                             else {
                                 self.MIXRDisconnected()
                             }
-                        }
+                        }, shouldProcess: true)
+                        
 //                        let length = self.timeFormatted(totalSeconds: Int((asset.duration.value)/Int64(asset.duration.timescale)))
 //                        print("\(text) - \(length)")
 //                        print(asset.metadata)
@@ -140,7 +153,7 @@ class RecordViewController: UIViewController, RecordingDelegate {
         }
     }
     
-    func getSong(completionHandler: @escaping CompletionHandler) {
+    func getSong(completionHandler: @escaping CompletionHandler, shouldProcess : Bool) {
         spinner = UIView.init(frame: view.bounds)
         spinner?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         let ai = UIActivityIndicatorView.init(style: .whiteLarge)
@@ -155,14 +168,31 @@ class RecordViewController: UIViewController, RecordingDelegate {
         guard let url = URL(string: "http://192.168.4.1:8089/process") else { return }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        request.timeoutInterval = TimeInterval(exactly: 5)!
+        request.setValue("setinstruments", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let parameters: [String: Bool] = [
+            "shouldProcess": shouldProcess
+        ]
+        request.httpBody = parameters.percentEncoded()
+        request.timeoutInterval = TimeInterval(exactly: 1000000000)!
 
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard error == nil else {
-                completionHandler(false, nil)
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data,
+                let response = response as? HTTPURLResponse, error == nil else {
+                    print("error", error ?? "Unknown error")
+                    completionHandler(false, Data())
+                    return
+            }
+
+            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+                print("statusCode should be 2xx, but is \(response.statusCode)")
+                print("response = \(response)")
+                completionHandler(false, data)
                 return
             }
+            
+            
+            print(String(data: data, encoding: .utf8))
             completionHandler(true, data)
         }.resume()
     }

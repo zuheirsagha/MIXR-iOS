@@ -81,7 +81,9 @@ class InputSelectionViewController : UIViewController {
             sendInstruments { (success) in
                 self.hideRetry(bool: true)
                 if (success) {
-                    self.performSegue(withIdentifier: "SelectInstrumentSegue", sender: self)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "SelectInstrumentSegue", sender: self)
+                    }
                 }
                 else {
                     self.showConnectivityError()
@@ -100,7 +102,9 @@ class InputSelectionViewController : UIViewController {
             self.sendInstruments { (success) in
                 self.hideRetry(bool: true)
                 if (success) {
-                    self.performSegue(withIdentifier: "SelectInstrumentSegue", sender: self)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "SelectInstrumentSegue", sender: self)
+                    }
                 }
                 else {
                     self.showConnectivityError()

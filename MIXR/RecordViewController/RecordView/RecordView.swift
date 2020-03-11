@@ -17,8 +17,8 @@ protocol RecordingDelegate {
     func startedRecording()
     func finishedRecording()
     func hitRecordButton()
-    func hitStopButton()
     func MIXRDisconnected()
+    func startingCountDown()
 }
 
 @IBDesignable
@@ -63,7 +63,6 @@ class RecordView: UIView {
     }
     
     @IBAction func stopButtonPressed(_ sender: RoundedButton) {
-        delegate?.hitStopButton()
         sendState(state: "stop") { (success) in
             if success {
                 DispatchQueue.main.async {
@@ -106,6 +105,7 @@ class RecordView: UIView {
                     })
                     self.timerLabel.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
                     self.timerLabel.text = "3"
+                    self.delegate?.startingCountDown()
                     self.animateCountdown("3")
                 }
             }

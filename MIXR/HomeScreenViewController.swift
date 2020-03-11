@@ -31,7 +31,9 @@ class HomeScreenViewController : UIViewController {
         ping { (success) in
             self.hideRetry(bool: success)
             if success {
-                self.performSegue(withIdentifier: "NewTrackSegue", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "NewTrackSegue", sender: self)
+                }
             }
         }
     }
